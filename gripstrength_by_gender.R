@@ -11,10 +11,10 @@
 #   https://www.reddit.com/r/dataisbeautiful/comments/4vcxd0/almost_all_men_are_stronger_than_almost_all_women/
 #####################################################################################
 
-# install.packages("Hmisc")  # to read .XPT data
-# install.packages("dplyr")  # to manipulate and merge datasets
-# install.packages("ggplot2")  # for data visualization
-# install.packages("RColorBrewer")  # for fancy colors. documentation here: http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/
+install.packages("Hmisc")  # to read .XPT data
+install.packages("dplyr")  # to manipulate and merge datasets
+install.packages("ggplot2")  # for data visualization
+install.packages("RColorBrewer")  # for fancy colors. documentation here: http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/
 
 library(Hmisc)
 library(ggplot2)
@@ -22,7 +22,7 @@ library(dplyr)
 library(RColorBrewer)
 
 # set your working directory
-setwd("D:/Dropbox/Data/R/Grip strength NHANES data")
+setwd("~/Grip strength NHANES data")
 
 # get data here: http://wwwn.cdc.gov/Nchs/Nhanes/2011-2012/MGX_G.XPT
 # documentation here: http://wwwn.cdc.gov/nchs/nhanes/2011-2012/MGX_G.htm
@@ -35,7 +35,7 @@ demodf <- sasxport.get("DEMO_G.XPT")
 # merge gripdf and demodf on variable seqn to get gender + age + grip strength
 comb <- inner_join(demodf, gripdf, by = "seqn")
 
-# recoding values to strings, for labels later
+# recoding values to strings, for legend labels later
 comb$sex <- ifelse(comb$riagendr == 1, "Male", ifelse(comb$riagendr == 2, "Female", ""))
 
 p <- ggplot(comb, aes(ridageyr, mgdcgsz, group=sex))

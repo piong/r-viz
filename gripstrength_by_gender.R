@@ -46,7 +46,6 @@ p +
   scale_colour_brewer(palette="Set1") +
   theme_bw(base_family="Times") +
   guides(size=FALSE, color=guide_legend("Gender", reverse=TRUE)) +
-  #theme(legend.position="none") +
   labs(x="Age", y="Combined Grip Strength (kg)", title="Grip Strength for Males vs Females")
 
 ggsave("grip_by_gender.png", width=7, height=6)

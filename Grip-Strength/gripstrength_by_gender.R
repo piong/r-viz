@@ -2,7 +2,7 @@
 # This R file shows that almost all men are stronger than almost all women, according to
 # a test of grip strength. Data was taken from the CDC's NHANES 2011-2012 data set
 # that can be found here: 
-# http://www.cdc.gov/nchs/nhanes/nhanes2011-2012/overview_g.htm
+#   http://www.cdc.gov/nchs/nhanes/nhanes2011-2012/overview_g.htm
 # 
 # This is a replication of redditor grasshoppermouse's visualization. The original
 # viz can be found here:
@@ -14,11 +14,11 @@
 install.packages("Hmisc")  # to read .XPT data
 install.packages("dplyr")  # to manipulate and merge datasets
 install.packages("ggplot2")  # for data visualization
-install.packages("RColorBrewer")  # for fancy colors. documentation here: http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/
+install.packages("RColorBrewer")  # for fancy colors.
 
 library(Hmisc)
-library(ggplot2)
 library(dplyr)
+library(ggplot2)
 library(RColorBrewer)
 
 # set your working directory
@@ -48,4 +48,5 @@ p +
   guides(size=FALSE, color=guide_legend("Gender", reverse=TRUE)) +
   labs(x="Age", y="Combined Grip Strength (kg)", title="Grip Strength for Males vs Females")
 
-ggsave("grip_by_gender.png", width=7, height=6)
+# export image to your local directory
+ggsave("gripstrength_by_gender.png", width=7, height=6)
